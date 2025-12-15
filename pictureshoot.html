@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUR PICTURES</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="middle">
+        <h2>
+            I have SHOT SOME SECRET PICTURES of you :3 <br> Yes. I am creepy like that :> <br>
+        </h2>
+    </div>
+    <div class="box">
+        <div class="grid">
+            <img src="pictures/minecarft.png" alt="Photo 1" width="300" class="gallery-img">
+            <img src="pictures/among1.png" alt="Photo 1" width="300" class="gallery-img">
+            <img src="pictures/among2.png" alt="Photo 1" width="300" class="gallery-img">
+            <img src="pictures/roblox.png" alt="Photo 1" width="300" class="gallery-img">
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" src="" alt="">
+    </div>
+
+    <div style="text-align: center; margin-top: 50px; margin-bottom: 50px;">
+        <a href="index.html" style="display: inline-block; padding: 12px 30px; background: linear-gradient(135deg, var(--amelka-primary) 0%, var(--amelka-secondary) 100%); color: white; text-decoration: none; border-radius: 15px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(79, 0, 128, 0.4);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(79, 0, 128, 0.6)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(79, 0, 128, 0.4)';">
+            Back Home 💜
+        </a>
+    </div>
+
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('.close');
+        const galleryImgs = document.querySelectorAll('.gallery-img');
+
+        galleryImgs.forEach(img => {
+            img.addEventListener('click', function() {
+                lightbox.classList.add('active');
+                lightboxImg.src = this.src;
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        closeBtn.addEventListener('click', function() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+
+</body>
+</html>
